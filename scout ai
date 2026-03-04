@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Football Scout | تحليل احترافي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root {
+            --primary: #ffcc00;
+            --glass: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: white;
+            background: #111;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: background 1.5s ease-in-out;
+            min-height: 100vh;
+        }
+
+        .overlay {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+            min-height: 100vh;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .input-style {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            color: white;
+            border-radius: 12px;
+            padding: 12px;
+            width: 100%;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: black;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.02);
+            background: #e6b800;
+        }
+
+        .rating-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body id="bg-body">
+
+<div class="overlay">
+    <div class="max-w-5xl mx-auto">
+        
+        <div class="text-center mb-10">
+            <span class="bg-yellow-400 text-black px-4 py-1 rounded-full text-xs font-bold mb-4 inline-block">BY SAMIR-Q | 2026 EDITION</span>
+            <h1 class="text-4xl md:text-6xl font-black mb-4">كشاف النجوم بالذكاء الاصطناعي</h1>
+            <p class="text-gray-300 text-lg">تحليل أداء اللاعبين عبر الفيديو باستخدام أقوى تقنيات Gemini</p>
+        </div>
+
+        <div class="glass-card p-8 mb-10">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-yellow-400">
+                <i data-lucide="user"></i> بيانات اللاعب والمهارات
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-2">اسم اللاعب</label>
+                    <input type="text" placeholder="مثال: محمد صلاح" class="input-style">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-2">المركز</label>
+                    <input type="text" placeholder="جناح أيمن" class="input-style">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-2">العمر</label>
+                    <input type="number" placeholder="25" class="input-style">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-8">
+                <div class="rating-box">
+                    <label class="text-xs text-gray-400">التمرير</label>
+                    <input type="number" value="5" class="bg-transparent text-center text-2xl font-bold w-full text-yellow-400 outline-none">
+                </div>
+                <div class="rating-box">
+                    <label class="text-xs text-gray-400">التسديد</label>
+                    <input type="number" value="5" class="bg-transparent text-center text-2xl font-bold w-full text-yellow-400 outline-none">
+                </div>
+                <div class="rating-box">
+                    <label class="text-xs text-gray-400">المراوغة</label>
+                    <input type="number" value="5" class="bg-transparent text-center text-2xl font-bold w-full text-yellow-400 outline-none">
+                </div>
+                <div class="rating-box">
+                    <label class="text-xs text-gray-400">السرعة</label>
+                    <input type="number" value="5" class="bg-transparent text-center text-2xl font-bold w-full text-yellow-400 outline-none">
+                </div>
+                <div class="rating-box">
+                    <label class="text-xs text-gray-400">البدني</label>
+                    <input type="number" value="5" class="bg-transparent text-center text-2xl font-bold w-full text-yellow-400 outline-none">
+                </div>
+                <div class="rating-box">
+                    <label class="text-xs text-gray-400">الدفاع</label>
+                    <input type="number" value="5" class="bg-transparent text-center text-2xl font-bold w-full text-yellow-400 outline-none">
+                </div>
+            </div>
+
+            <div class="border-2 border-dashed border-yellow-400/30 rounded-3xl p-10 text-center hover:bg-yellow-400/5 transition cursor-pointer mb-8">
+                <i data-lucide="upload-cloud" class="w-12 h-12 text-yellow-400 mx-auto mb-4"></i>
+                <p class="text-xl font-bold">ارفع فيديو اللاعب</p>
+            </div>
+
+            <button class="btn-primary w-full py-5 rounded-2xl text-xl shadow-lg shadow-yellow-400/20">
+                ابدأ التحليل الذكي الآن
+            </button>
+        </div>
+
+        <div class="glass-card p-8 border-t-4 border-yellow-400">
+            <h3 class="text-xl font-bold text-yellow-400 mb-4 flex items-center gap-2">
+                <i data-lucide="file-text"></i> التقرير الفني المبدئي
+            </h3>
+            <p class="text-gray-300 leading-relaxed italic">
+                بانتظار رفع الفيديو لبدء استخراج البيانات الفنية والتحليلية...
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    lucide.createIcons();
+    const images = [
+        "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2000",
+        "https://images.unsplash.com/photo-1508098682722-e99c643e7f0b?q=80&w=2000",
+        "https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=2000"
+    ];
+    let i = 0;
+    function changeBg() {
+        document.body.style.backgroundImage = `url('${images[i]}')`;
+        i = (i + 1) % images.length;
+    }
+    setInterval(changeBg, 7000);
+    changeBg();
+</script>
+</body>
+</html>
